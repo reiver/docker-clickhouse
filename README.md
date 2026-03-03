@@ -10,6 +10,8 @@ To create the Docker image, run:
 bash BUILD.sh
 ```
 
+(If you run `docker images` after this, you should see a Docker image named `clickhouse-in-a-box`.)
+
 (You won't have to do this very often.)
 
 ## Run Docker Image
