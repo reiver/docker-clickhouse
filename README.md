@@ -29,7 +29,6 @@ bash RUN.sh
 
 (Don't confuse "running" a Docker container with "starting" a Docker container.)
 
-
 ## ClickHouse Client
 
 To run the ClickHouse Client (from inside the container), run:
@@ -37,6 +36,43 @@ To run the ClickHouse Client (from inside the container), run:
 ```bash
 bash CLIENT.sh
 ```
+
+## External User
+
+You may need to create a user to access the database outside of `localhost`.
+
+To do that, first run:
+
+```sql
+CREATE USER user123
+IDENTIFIED WITH plaintext_password BY 'pw123'
+HOST ANY;
+```
+
+Where you replace `user123` with the user-name you want.
+And, replace `pw123` with the pass-word you want.
+
+And then run:
+
+```sql
+GRANT ALL ON default.* TO user123;
+```
+
+Again, replacing `user123` with the user-name you used in the previous step.
+
+You can see if the user was created by running:
+
+```sql
+SELECT * FROM system.users;
+```
+
+And, can see if the privileges you tried to grant were granted by running:
+
+```sql
+SHOW GRANTS FOR user123;
+```
+
+Again, replacing `user123` with the user-name you used in the previous step.
 
 ## Stop Docker Image
 
