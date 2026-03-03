@@ -24,6 +24,8 @@ To run the Docker image, run:
 bash RUN.sh
 ```
 
+(If you run `docker ps` after this you should see a Docker container named `clickhouse`.)
+
 ## ClickHouse Client
 
 To run the ClickHouse Client, run:
