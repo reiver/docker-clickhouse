@@ -3,19 +3,12 @@ THE_PASSWORD="pw123"
 echo
 echo "###########################################################################"
 echo "#                                                                         #"
-echo "# RUN ClickHouse DOCKER CONTAINER                                         #"
+echo "# RESTARTING ClickHouse DOCKER CONTAINER                                  #"
 echo "#                                                                         #"
 echo "###########################################################################"
 echo
 
-docker run -d                                    \
-	--name clickhouse                        \
-	-e CLICKHOUSE_PASSWORD="${THE_PASSWORD}" \
-	-p 8123:8123                             \
-	-p 9000:9000                             \
-	-p 9009:9009                             \
-	-p 9440:9440                             \
-	clickhouse-in-a-box
+docker restart clickhouse
 
 echo
 echo "###########################################################################"
