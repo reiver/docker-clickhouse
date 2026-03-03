@@ -1,1 +1,1 @@
-docker build -t clickhouse-in-a-box
+docker build -t clickhouse-in-a-box .
